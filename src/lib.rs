@@ -1,3 +1,17 @@
+/// Returns a String that ends with a '\n' newline character
+///
+/// # Arguments
+///
+/// * `line` - the &str to ensure ends in a newline
+///
+/// # Examples
+///
+/// ```    
+/// use aoutils;
+///
+/// let result = aoutils::ensure_newline("alpha");
+/// assert!(result.ends_with("\n"));
+/// ```
 pub fn ensure_newline(line: &str) -> String {
     if let Some(c) = line.chars().last() {
         if c != '\n' {
@@ -33,8 +47,30 @@ pub fn is_alphabetic(s : &str) -> bool {
 
 #[cfg(test)]
 mod tests {
+    use super::*;
+    
     #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
+    fn ensure_newline_without_newline() {        
+        let result = ensure_newline("test string");
+        assert!(result.ends_with("\n"));
+    }
+    
+    #[test]
+    fn ensure_newline_with_newline() { 
+        let test_string = "test_string\n";       
+        
+        let result = ensure_newline(test_string);
+        assert!(result.ends_with("\n"));
+        assert!(result.matches("\n").count() == 1);
+    }
+
+    #[test]
+    fn is_alphabetic_with_alphabetic() {
+        assert_eq!(is_alphabetic("alpha"), true);
+    }
+
+    #[test]
+    fn is_alphabetic_with_numeric() {        
+        assert_eq!(is_alphabetic("alpha1"), false);
     }
 }
