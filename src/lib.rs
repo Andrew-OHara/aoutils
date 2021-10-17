@@ -8,6 +8,19 @@ pub fn ensure_newline(line: &str) -> String {
     return line.to_string();
 }
 
+/// True if the string is made up solely of alphabetic characters
+///
+/// # Arguments
+///
+/// * `s` - the &str to check
+///
+/// # Examples
+///
+/// ```    
+/// use aoutils;
+/// let result = aoutils::is_alphabetic("alpha");
+/// assert_eq!(result, true);
+/// ```
 pub fn is_alphabetic(s : &str) -> bool {
     for c in s.chars() {
         if !c.is_alphabetic() {            
