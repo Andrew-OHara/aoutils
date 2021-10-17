@@ -1,7 +1,9 @@
 [package]
-name = "ao_string_utils"
+name = "aoutils"
 version = "0.1.0"
 edition = "2018"
+license = "MIT OR Apache-2.0"
+description = "A tiny utilities package to test publishing to crates.io"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
