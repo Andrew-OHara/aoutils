@@ -1,3 +1,16 @@
+//! aoutils is a tiny library I created and published simply to learn how to publish and use my own crates
+//! As I learn Rust, I may add more useful functions and this may become an actual useful library.
+//! * Examples
+//! ``` 
+//! fn main() {
+//!     let result = aoutils::ensure_newline("alpha");
+//!     assert_eq!(result, "alpha\n");
+//! 
+//!     let result = aoutils::is_alphabetic("alpha");
+//!     assert_eq!(result, true);
+//! }
+//! ```
+
 /// Returns a String that ends with a '\n' newline character
 ///
 /// # Arguments
@@ -10,7 +23,7 @@
 /// use aoutils;
 ///
 /// let result = aoutils::ensure_newline("alpha");
-/// assert!(result.ends_with("\n"));
+/// assert!(result.ends_with("\n")); 
 /// ```
 pub fn ensure_newline(line: &str) -> String {
     if let Some(c) = line.chars().last() {
@@ -72,5 +85,15 @@ mod tests {
     #[test]
     fn is_alphabetic_with_numeric() {        
         assert_eq!(is_alphabetic("alpha1"), false);
+    }
+
+    #[test]
+    fn is_alphabetic_with_special_char() {        
+        assert_eq!(is_alphabetic("alpha!"), false);
+    }
+
+    #[test]
+    fn is_alphabetic_with_space() {        
+        assert_eq!(is_alphabetic("alpha "), false);
     }
 }
